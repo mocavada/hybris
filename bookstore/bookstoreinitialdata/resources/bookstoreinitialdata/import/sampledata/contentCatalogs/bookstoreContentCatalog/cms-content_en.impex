@@ -1,0 +1,95 @@
+$contentCatalog=bookstoreContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$contentCatalogName=Bookstore Content Catalog
+# Language
+$lang=en
+
+
+# CMS Link Components
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+;;LoginLink;"Login"
+;;AllGenresCategoryLink;"Genre"
+;;BooksCategoryLink;"Books"
+;;EBooksCategoryLink;"E-Books"
+;;AudioBooksCategoryLink;"Audio Books"
+;;FictionCategoryLink;"Fiction"
+;;NonFictionCategoryLink;"Non Fiction"
+;;CrimeCategoryLink;"Crime"
+;;HorrorCategoryLink;"Horror"
+;;MysteryCategoryLink;"Mystery"
+;;RomanceCategoryLink;"Romance"
+;;ScienceFictionCategoryLink;"Science Fiction"
+;;WesternCategoryLink;"Western"
+;;ThrillerCategoryLink;"Thriller"
+;;ComedyCategoryLink;"Comedy"
+;;DramaCategoryLink;"Drama"
+;;FantasyCategoryLink;"Fantasy"
+;;ComputerScienceCategoryLink;"Computer Science"
+;;AutobiographyCategoryLink;"Autobiography"
+;;DictionaryCategoryLink;"Dictionary"
+;;EncyclopediaCategoryLink;"Encyclopedia"
+;;HistoryCategoryLink;"History"
+;;PhilosophyCategoryLink;"Philosophy"
+;;SelfHelpCategoryLink;"Self Help"
+;;PaperBackCategoryLink;"Paperback"
+;;HardCoverCategoryLink;"Hardcover"
+;;KindleCategoryLink;"Kindle"
+;;AudioCDCategoryLink;"Audio CD"
+;;HomepageNavLink;"Home"
+;;PersonalDetailsLink;"Update Personal Details"
+;;UpdateEmailLink;"Update Email"
+;;UpdatePasswordLink;"Update Password"
+;;AddressBookLink;"Address Book"
+;;PaymentDetailsLink;"Payment Details"
+;;OrderHistoryLink;"Order History"
+
+# CMS Navigation Nodes
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;FictionLinksNavNode;"Fiction"
+;;NonFictionLinksNavNode;"Non Fiction"
+;;BookstoreNavNode;"Bookstore Site"
+;;GenreNavNode;"Genre"
+;;BooksNavNode;"Books"
+;;EBooksNavNode;"E-Books"
+;;AudioBooksNavNode;"Audio Books"
+;;CrimeNavNode;"Crime"
+;;HorrorNavNode;"Horror"
+;;MysteryNavNode;"Mystery"
+;;ScienceFictionNavNode;"Science Fiction"
+;;WesternNavNode;"Western"
+;;ComputerScienceNavNode;"Computer Science"
+;;AutobiographyNavNode;"Autobiography"
+;;DictionaryNavNode;"Dictionary"
+;;EncyclopediaNavNode;"Encyclopedia"
+;;MyAccountNavNode;"My Account"
+
+
+INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;NewBookstoreHomepageProductCarouselComponent;What's New
+
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang];
+;;homepage;"Homepage"
+;;search;"Search Result"
+
+# Footer
+
+# CMS Navigation Nodes
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;FollowUsNavNode;"Follow Us"
+;;SAPCommerceNavNode;"SAP Commerce Cloud"
+;;SAPCustomerExperienceNavNode;"SAP Customer Experience"
+
+# CMS Link Components
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+;;AboutSAPCommerceLink;"About SAP Commerce Cloud"
+;;AgileCommerceBlogLink;"Agile Commerce Blog"
+;;ContactUsLink;"Contact Us"
+;;FAQLink;"FAQ"
+;;FacebookLink;"Facebook"
+;;LinkedInLink;"Linked In"
+;;TwitterLink;"Twitter"
+;;VisitSAPLink;"Visit SAP"
+
+# CMS Footer Navigation Component
+UPDATE FooterNavigationComponent;$contentCV[unique=true];uid[unique=true];notice[lang=en][translator=de.hybris.platform.acceleratorservices.dataimport.batch.converter.CopyrightTranslator,dateFormat=yyyy]
+;;FooterNavigationComponent;"Copyright © {0} SAP SE or an SAP affiliate company. All rights reserved."
